@@ -1,0 +1,21 @@
+h1 i
+{
+    margin-right: 0.5em;
+}
+
+.form-row input{
+    margin: 10px;
+}
+#submit_payment{
+    margin: 10px;
+    background-color: #339966;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+}
+#submit_payment:hover{
+    background-color: #66CC99;
+    box-shadow: 0 0 4px 2px rgba(102, 204, 153, 0.5);
+    color: white;
+}

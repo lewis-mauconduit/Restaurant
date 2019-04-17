@@ -1,0 +1,76 @@
+<main>
+        <!-- Affichage du template lié à la vue -->
+        <h2><i class="fas fa-utensils"></i> Réservation d'une table</h2>
+
+<form class="generic-form" action="<?= $requestUrl ?>/booking" method="POST">
+	<fieldset>
+		<legend>Informations</legend>
+		<ul>
+			<li>
+				<label for="bookingDay">Date de réservation :</label>
+				<select id="bookingDay" name="bookingDay">
+					<?php for ($i = 1; $i<= 31; $i++){ ?>
+                        <option value="<?= $i ?>"><?= $i ?></option>
+                    <?php } ?>
+				</select>
+				<span> / </span>
+				<select name="bookingMonth">
+					<option value="1">Janvier</option>
+					<option value="2">Février</option>
+					<option value="3">Mars</option>
+					<option value="4">Avril</option>
+					<option value="5">Mai</option>
+					<option value="6">Juin</option>
+					<option value="7">Juillet</option>
+					<option value="8">Août</option>
+					<option value="9">Septembre</option>
+					<option value="10">Octobre</option>
+					<option value="11">Novembre</option>
+					<option value="12">Décembre</option>
+				</select>
+				<span> / </span>
+				<select name="bookingYear">
+					<?php for ($i = date("Y"); $i<= date("Y")+2; $i++){ ?>
+                                <option value="<?= $i ?>"><?= $i ?></option>
+                        <?php } ?>
+				</select>
+				<span> à </span>
+				<select name="bookingHour">
+					<?php for ($i = 12; $i<= 23; $i++){ ?>
+                        <option value="<?= $i ?>"><?= $i ?></option>
+                    <?php } ?>
+				</select>
+				<span> : </span>
+				<select name="bookingMinute">
+					<option value="0">00</option>
+					<option value="15">15</option>
+					<option value="30">30</option>
+					<option value="45">45</option>
+				</select>
+			</li>
+			<li>
+				<label for="numberOfSeats">Nombre de couverts :</label>
+				<select id="numberOfSeats" name="numberOfSeats">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+									</select>
+			</li>
+		</ul>
+	</fieldset>
+
+	<ul>
+		<li>
+			<input class="button button-primary" type="submit" value="Réserver">
+			<a class="button button-cancel small" href="<?= $requestUrl ?>">Annuler</a>
+		</li>
+	</ul>
+</form>    
+</main>
+
+<script src="<?=$wwwUrl?>/js/classes/booking/booking.js"></script>

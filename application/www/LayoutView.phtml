@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/normalize-3.0.3.min.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/font-awesome-4.3.0.min.css">
+
+    <!-- Feuilles de styles de l'application -->
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/3wa-resto.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-button.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-form.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-table.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps|Karla">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/modif.css">
+    <!-- Librairie jQuery -->
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+
+    <!-- JavaScript de l'application -->
+    <script src="<?= $wwwUrl ?>/js/utilities.js"></script>
+</head>
+<body>
+
+<!-- En-tête commune -->
+<header>
+    <h1>
+        <a href="<?= $requestUrl ?>">
+        <i class="fas fa-utensils"></i>Restaurant - Made In America !
+        </a>
+    </h1>
+    <nav class="user-interface">
+        <ul class="link-list">
+                
+                <?php if ($_SESSION == null){ ?>
+                    <li>
+                        <a class="button button-primary" href="<?= $requestUrl ?>/user/register">Créer un compte</a>
+                    </li>
+                    <li id="button_connexion" class="layout-right">
+                        <a class="button button-primary" href="<?= $requestUrl ?>/user/login">Connexion</a>
+                    </li>
+
+                <!---------------MASQUER LE BUTTON CONNEXION SUR LA PAGE LOGIN------------>
+                    <script>  
+                        if (document.location.href.indexOf('login') != -1 )
+                        {  
+                            $('#button_connexion').css("display","none");
+                        }
+                    </script>
+ 
+
+                    
+                <?php } else {?>
+                    <li>
+                        <a class="button button-primary" href="<?= $requestUrl ?>/booking">Réserver</a>
+                        <a class="button button-primary" href="<?= $requestUrl ?>/order">Commander</a>
+                    </li>
+                    <li class="layout-right">
+                        <p class="welcome">Bonjour <strong><?=$_SESSION['FirstName'].' '.$_SESSION['LastName'] ?></strong> !</p>
+                        <a class="button button-primary" href="<?= $requestUrl ?>/user/logout">Déconnexion</a>
+                    </li>
+
+
+                    <li class="layout-right">
+                        <a class="button button-primary" href="<?= $requestUrl ?>/user/logout">Deconnexion</a>
+                    </li>
+                <?php } ?>
+                </ul>
+    </nav>
+</header>
+
+<!-- Interface utilisateur -->
+<nav class="user-interface">
+    <ul class="link-list">
+        <!-- Code HTML/PHP à écrire -->
+    </ul>
+</nav>
+
+<main>
+    <!-- Affichage du template lié à la vue -->
+    <?php include $this->viewData['template'] ?>
+</main>
+
+<!-- Pied de page commun -->
+<footer>
+    <ul class="link-list">
+        <li><img src="<?= $wwwUrl ?>/images/payment/visa.png" alt="Visa"></li>
+        <li><img src="<?= $wwwUrl ?>/images/payment/mastercard.png" alt="MasterCard"></li>
+        <li><img src="<?= $wwwUrl ?>/images/payment/paypal.png" alt="PayPal"></li>
+    </ul>
+</footer>
+
+<!-- Code principal JavaScript de l'application -->
+<script src="<?= $wwwUrl ?>/js/main.js"></script>
+
+</body>
+</html>

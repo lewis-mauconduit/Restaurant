@@ -1,0 +1,27 @@
+<form action="<?=$requestUrl?>/order/charge?order_id=<?=$order_id ?>" method="POST" id="payment-form">
+			  <div class="form-row">
+					<label for="first_name">Prénom :</label>
+			    <input type="text" class="form-control mb-3 StripeElement StripeElemen--empty" value="<?= $_SESSION['FirstName']?>" name="first_name" >
+
+					<label for="last_name">Nom :</label>
+			    <input type="text" class="form-control mb-3 StripeElement StripeElemen--empty" value="<?= $_SESSION['LastName']?>" name="last_name" >
+
+					<label for="email">Email :</label>
+			    <input type="email" class="form-control mb-3 StripeElement StripeElemen--empty" value="<?= $_SESSION['Email']?>" name="email" >
+
+			    <div style="border: 1px black solid;" id="card-element" class="form-control">
+			      <!-- A Stripe Element will be inserted here. -->
+			    </div>
+
+			    <!-- Used to display form errors. -->
+			    <div id="card-errors" role="alert"></div>
+			  </div>
+
+			  <button id="submit_payment">Submit Payment</button>
+			</form>
+		</div>
+		<script src="https://js.stripe.com/v3/"></script>
+		<script src="<?=$wwwUrl?>/js/classes/payment/charge.js"></script>
+
+
+<script src="<?=$wwwUrl?>/js/classes/order/payment/payment.js"></script>
